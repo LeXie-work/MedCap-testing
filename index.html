@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>REDCap Access Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2em;
+      max-width: 600px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 1em;
+      font-weight: bold;
+    }
+    input {
+      width: 100%;
+      padding: 0.5em;
+      margin-top: 0.3em;
+      box-sizing: border-box;
+    }
+    button {
+      margin-top: 2em;
+      padding: 0.8em 1.5em;
+      font-size: 1em;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Welcome to MedCap</h1>
+
+  <label for="userId">Enter your User ID:</label>
+  <input type="text" id="userId" placeholder="e.g. user123" />
+
+  <label for="redcapLink">Paste your REDCap form link:</label>
+  <input type="url" id="redcapLink" placeholder="https://redcap.example.com/survey..." />
+
+  <button onclick="goToForm()">Go to My REDCap Form</button>
+
+  <script>
+    // When the button is clicked, redirect to the REDCap link provided by the user
+    function goToForm() {
+      const userId = document.getElementById("userId").value.trim();
+      const redcapLink = document.getElementById("redcapLink").value.trim();
+
+      if (!userId || !redcapLink) {
+        alert("Please enter both your User ID and your REDCap link.");
+        return;
+      }
+
+      // Redirect to the entered REDCap link
+      window.location.href = redcapLink;
+    }
+  </script>
+
+</body>
+</html>
